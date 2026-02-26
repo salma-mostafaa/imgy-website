@@ -3,30 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Online Image Processing</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
 
 <nav class="navbar">
     <div class="nav-left">
-        <a href="#home">Home</a>
-        <a href="#processing">Processing</a>
+        <a href="#home" id="link-home">Home</a>
+        <a href="#processing" id="link-processing">Processing</a>
     </div>
     <div class="nav-right">IMGY</div>
 </nav>
 
-<!-- ================= HOME SECTION ================= -->
 <section id="home" class="section home-section">
     <div class="home-content">
         <h1>Online Image Processing</h1>
-        <p>Welcome! Here you can perform multiple image processing operations online, including filtering, edge detection, arithmetic operations, and more.</p>
+        <p>Welcome! Here you can perform multiple image processing operations online, including filtering, edge detection, arithmetic operations, and more...</p>
     </div>
     <div class="home-image">
-         <img src="css/birds.jpg" alt="">
+         <img src="static/birds.jpg" alt="">
     </div>
 </section>
 
-<!-- ================= PROCESSING SECTION ================= -->
 <section id="processing" class="section processing-section">
 <div class="container">
 
@@ -36,24 +34,22 @@
 <form id="uploadForm" enctype="multipart/form-data">
 
 <label><h3>Image 1:</h3></label>
-<input type="file" id="image" required><br><br>
+<input type="file" id="image" name="image" required><br>
 
 <label><h3>Image 2:</h3></label>
 <p style="font-size: small;">Add another image for two-image operations like addition, subtraction, division, histogram matching</p>
-<input type="file" id="image2"><br><br>
+<input type="file" id="image2" name="image2"><br><br>
 
 <select id="operation" required>
     <optgroup label="Two-Image Operations">
         <option value="addition">Addition</option>
         <option value="subtraction">Subtraction</option>
-        <option value="division">Division</option>
         <option value="hist_match">Histogram Matching</option>
     </optgroup>
     <optgroup label="Arithmetic / Intensity">
         <option value="const_sub">Constant Subtraction</option>
         <option value="const_sub_np">Constant Subtraction (NumPy)</option>
         <option value="negative">Negative Image</option>
-        <option value="normalize">Normalization</option>
     </optgroup>
     <optgroup label="Bit & Slicing">
         <option value="bit_plane">Bit Plane Slicing</option>
@@ -84,7 +80,6 @@
     </optgroup>
 </select><br><br>
 
-<!-- ================= PARAMETERS ================= -->
 <div id="logBox" style="display:none;">
     c: <input type="number" id="cVal" name="c" value="5">
 </div>
@@ -116,22 +111,22 @@
 <button type="submit">Process</button>
 <button type="button" id="resetBtn">Reset</button>
 <button type="button" id="downloadBtn">Download</button>
+<br>
+<h4>Please click reset before applying any operation</h4>
 
 </form>
 </div>
 
 <div class="panel output-panel">
     <h2>Processed Image</h2>
+    <img id="inputImage" src="" alt="">
     <img id="outputImage" src="" alt="">
+
 </div>
 
 </div>
 </section>
 
-<script src="/js/script.js"></script>
+<script src="/static/script.js"></script>
 </body>
 </html>
-
-
-
-
